@@ -30,7 +30,7 @@ export async function action({ request }: ActionFunctionArgs) {
     
     try {
       const resUpdateUser = await UserAPI.updateUser(updatedUser);
-      console.log("Update user response :", resUpdateUser);
+      // console.log("Update user response :", resUpdateUser);
     } catch (error) {
       console.error("Update user error:", error);
       return json({ error: "Failed to update user. Please try again." }, { status: 500 });
