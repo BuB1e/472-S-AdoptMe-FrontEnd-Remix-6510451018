@@ -5,7 +5,7 @@ import { photoPath } from "~/server/config.server";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const Photo = photoPath();
-  console.log("pathLoaderBase : ", Photo);
+  // console.log("pathLoaderBase : ", Photo);
   return { Photo };
 }
 

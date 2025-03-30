@@ -11,7 +11,7 @@ import { AdoptionAPI, ImageAPI } from "~/server/repository";
 import { getSession } from "~/server/session";
 
 export async function action({ request }: ActionFunctionArgs) {
-  console.log("action addpet");
+  // console.log("action addpet");
   const formData = await request.formData();
   const action = formData.get("_action");
   const session = await getSession(request.headers.get("Cookie"));
@@ -32,7 +32,7 @@ export async function action({ request }: ActionFunctionArgs) {
     if (!image) {
       return { error: "Please upload an image." };
     }
-    console.log("image : ", image);
+    // console.log("image : ", image);
     try {
       const resCreatePet = await PetAPI.createPet(
         name,
@@ -46,10 +46,10 @@ export async function action({ request }: ActionFunctionArgs) {
         spayed,
         detail
       );
-      console.log("resCreatePet : ", resCreatePet);
+      // console.log("resCreatePet : ", resCreatePet);
       try {
         const resCreateAdoption = await AdoptionAPI.createAdoption(userId!, resCreatePet.pet_id);
-        console.log("resCreateAdoption : ", resCreateAdoption);
+        // console.log("resCreateAdoption : ", resCreateAdoption);
       } catch (error) {
         console.error("Error creating adoption:", error);
       }
@@ -96,11 +96,11 @@ export default function AddPetPage() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("handleFileSelect triggered");
+    // console.log("handleFileSelect triggered");
     const file = event.target.files?.[0] || null;
-    console.log("Selected file:", file);
+    // console.log("Selected file:", file);
     if (file) {
-      console.log("File type:", file.type);
+      // console.log("File type:", file.type);
       if (imagePreview) {
         console.log("Revoking previous preview URL");
         URL.revokeObjectURL(imagePreview);

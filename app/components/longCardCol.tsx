@@ -6,7 +6,7 @@ interface props {
 }
 
 export default function LongCardCol({type, Photo} : props) {
-    console.log("type : "+type);
+    // console.log("type : "+type);
     if(type == "Dogs") {
         return(
             <div className="flex flex-col justify-center items-center w-full h-fit space-y-8">
