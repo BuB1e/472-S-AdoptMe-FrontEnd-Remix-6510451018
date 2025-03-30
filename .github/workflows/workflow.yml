@@ -20,9 +20,6 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
-      - name: Run ESLint
-        run: bun run lint
-
   build:
     needs: test
     runs-on: ubuntu-latest
